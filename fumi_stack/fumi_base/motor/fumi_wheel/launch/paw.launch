@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <node respawn="true" pkg="fumi_wheel"   name="fumi_wheel_node" type="fumi_wheel_node">
+    <rosparam file="$(find fumi_config)/params/drivers/odom.yaml" command="load"/>
+  </node>
+  <node respawn="true" pkg="fumi_wheel"   name="odometry_node" type="odometry_node">
+    <rosparam file="$(find fumi_config)/params/drivers/odom.yaml" command="load"/>
+  </node>
+
+</launch>

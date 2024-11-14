@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+		<!-- <include file="$(find fumi_launch)/launch/base.launch"/> -->
+		<group ns="fumi">
+			<arg name="map_file" default="$(find fumi_maps)/maps/level6.yaml"/>
+  			<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+		</group>  
+		
+		<include ns="fumi" file="$(find fumi_launch)/launch/fumi_amcl.launch" />
+		<include ns="fumi" file="$(find fumi_launch)/launch/fumi_move_base.launch"/>
+		
+		<node type="rviz" name="rviz" pkg="rviz" args="-d $(find fumi_config)/rviz/navigation.rviz" />
+
+
+</launch>
+
